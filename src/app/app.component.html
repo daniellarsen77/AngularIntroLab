@@ -1,0 +1,40 @@
+
+
+<h1><strong>Welcome to Chirpus Pizza!</strong></h1>
+<br/>
+
+
+<div *ngFor="let category of getUniqueCategories()">
+  <h2>{{category}}</h2>
+  <table style="border-spacing: 15px 0">
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+    </tr>
+    <tr *ngFor="let item of getCategory(category)">
+      <td>{{item.name}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+  </table>
+</div>
+
+<!-------------------------------------------------------------------------------------------->
+<br><br><br><br><br>
+
+<table style="border-spacing: 15px 0">
+  <tr>
+    <th>Item</th>
+    <th>Category</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let item of categories">
+    <td>{{item.name}}</td>
+    <td>{{item.category}}</td>
+    <td>{{item.price}}</td>
+  </tr>
+</table>
+  
+<p>Select category <input type="string" name="Cat" id="Cat"></p>
+<!-- Can also use <span> with style=padding instead of margin-right-->
+<button (click)="getByCategory('Cat')" style="margin-right:20px">Select Category</button>
+<button (click)="clearCategory()" >Clear Filter</button>
